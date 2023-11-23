@@ -21,7 +21,7 @@ const Button = forwardRef(
       size = "md",
       ...rest
     }: ButtonProps,
-    ref?: Ref<HTMLButtonElement>
+    ref?: Ref<HTMLButtonElement>,
   ) => {
     return (
       <button
@@ -57,14 +57,14 @@ const Button = forwardRef(
           { "text-base md:text-lg": size === "lg" },
           { "text-sm md:text-base": size === "md" },
           { "text-sm": size === "sm" },
-          { "text-xs": size === "xs" }
+          { "text-xs": size === "xs" },
         )}
         type={type}
         ref={ref}
         {...rest}
       ></button>
     );
-  }
+  },
 );
 
 Button.displayName = "Button";
