@@ -1,5 +1,5 @@
 import React, { ReactNode, useEffect, useState } from 'react';
-import { useLocation } from 'react-router-dom';
+import { useLocation, useNavigate } from 'react-router-dom';
 import classnames from 'classnames';
 import { useUIStore } from '../../store/ui';
 import { shallow } from 'zustand/shallow';
@@ -14,26 +14,37 @@ interface NavItem {
 }
 const Sidenav: React.FC = () => {
   const location = useLocation();
+  const navigate = useNavigate();
+
   const topNav: Array<NavItem> = [
     {
       icon: <Home />,
       label: 'home',
-      action: () => updateSidenavState(false),
+      action: () => navigate('/'),
     },
     {
       icon: <Mission />,
       label: 'our mission',
-      action: () => updateSidenavState(false),
+      action: () => {
+        navigate('/our-mission');
+        updateSidenavState(false);
+      },
     },
     {
       icon: <News />,
       label: 'news',
-      action: () => updateSidenavState(false),
+      action: () => {
+        navigate('/news');
+        updateSidenavState(false);
+      },
     },
     {
       icon: <Waiting />,
       label: 'join waiting list',
-      action: () => updateSidenavState(false),
+      action: () => {
+        navigate('/join-our-waiting-list');
+        updateSidenavState(false);
+      },
     },
   ];
 
@@ -68,13 +79,13 @@ const Sidenav: React.FC = () => {
   return (
     <div
       className={classnames(
-        'bg-green-800 w-[17%] min-w-[17.5rem] h-screen overflow-x-hidden overflow-y-auto absolute top-0 lg:relative lg:ml-0 transition-[margin-left] duration-700 z-20',
+        'bg-green-800 lg:hidden w-[17%] min-w-[17.5rem] h-screen overflow-x-hidden overflow-y-auto absolute top-0 lg:relative lg:ml-0 transition-[margin-left] duration-700 z-20',
         { 'ml-0': sidenavState },
         { '-ml-[100%]': !sidenavState },
       )}
     >
-      <div className='w-full h-full py-10 relative'>
-        <div className='flex items-center justify-between lg:justify-start ml-10'>
+      <div className='w-full h-full py-8 relative'>
+        <div className='flex items-center justify-between lg:justify-start ml-7 md:ml-9'>
           <img className='md:w-32 lg:w-36' src={MunginLogo} alt='mungin logo' />
           <Button
             className='lg:hidden mr-2 text-white'
