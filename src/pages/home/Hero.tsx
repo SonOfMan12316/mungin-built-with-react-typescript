@@ -3,17 +3,30 @@ import Navigation from '../../components/layouts/Navigation';
 import backgroundImage from '../../assets/images/hero-bg.png';
 import { Leaf } from '../../components/icons';
 
+// const WorkingProcess = () => {
+//   return (
+//     <div className=''>
+//       <div className='bg-white '>
+//         {/* <h2 className='text-center text-xl sm:text-3xl md:text-3xl xl:text-4xl font-medium sm:font-semibold lg:font-bold  font-serif'>
+//           Working Process
+//         </h2> */}
+//         njik
+//       </div>
+//     </div>
+//   );
+// };
+
 const Hero: React.FC = () => {
   const containerStyle: React.CSSProperties = {
     backgroundImage: `url('${backgroundImage}')`,
   };
 
   return (
-    <div style={containerStyle} className='bg-cover bg-center h-screen w-screen bg-no-repeat'>
+    <div style={containerStyle} className='bg-cover bg-center  h-screen  bg-no-repeat'>
       <Navigation />
-      <div className='px-7 md:px-9 mt-14'>
+      <div className='px-6 md:px-10 lg:px-16 xl:px-32 mt-20 flex-grow flex flex-col justify-center items-center'>
         <div className=''>
-          <div className='text-xl xl:text-4xl font-medium lg:font-bold'>
+          <div className='text-xl md:text-3xl xl:text-4xl font-semibold lg:font-bold w-72 md:w-1/2 lg:w-5/12'>
             Growing&nbsp;
             <span className='relative text-ch-primary'>
               <Leaf className='absolute -top-6 left-0' />
@@ -21,7 +34,7 @@ const Hero: React.FC = () => {
             </span>
             &nbsp;data for immediate impact.
           </div>
-          <div>
+          <div className='mt-4 text-sm md:text-base font-medium sm:w-7/12 lg:w-5/12'>
             At Mungin we transform data to actionable insights that power decision making across the
             agricultural value chain.Delivering innovative Agtech Solutions to improve agricultural
             productivity in Nigeria is our ethos

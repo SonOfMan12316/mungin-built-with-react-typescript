@@ -12,7 +12,7 @@ const Navigation: React.FC = () => {
 
   return (
     <div className='w-screen'>
-      <main className='w-full h-full flex items-center justify-between px-7 md:px-9 py-8 relative'>
+      <main className='w-full h-full flex items-center justify-between px-6 md:px-10 lg:px-16 xl:px-32 py-8 relative'>
         <div className='cursor-pointer hidden lg:flex items-center h-16'>
           <img className='md:w-32 lg:w-36' src={Logo} alt={'hmm'} />
         </div>
