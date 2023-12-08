@@ -3,26 +3,13 @@ import Navigation from '../../components/layouts/Navigation';
 import backgroundImage from '../../assets/images/hero-bg.png';
 import { Leaf } from '../../components/icons';
 
-// const WorkingProcess = () => {
-//   return (
-//     <div className=''>
-//       <div className='bg-white '>
-//         {/* <h2 className='text-center text-xl sm:text-3xl md:text-3xl xl:text-4xl font-medium sm:font-semibold lg:font-bold  font-serif'>
-//           Working Process
-//         </h2> */}
-//         njik
-//       </div>
-//     </div>
-//   );
-// };
-
 const Hero: React.FC = () => {
   const containerStyle: React.CSSProperties = {
     backgroundImage: `url('${backgroundImage}')`,
   };
 
   return (
-    <div style={containerStyle} className='bg-cover bg-center  h-screen  bg-no-repeat'>
+    <div style={containerStyle} className='bg-cover bg-center h-screen  bg-no-repeat'>
       <Navigation />
       <div className='px-6 md:px-10 lg:px-16 xl:px-32 mt-20 flex-grow flex flex-col justify-center items-center'>
         <div className=''>
