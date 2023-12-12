@@ -7,3 +7,4 @@ export { default as CaretDoubleLeft } from './CaretDoubleLeft';
 export { default as Signout } from './Signout';
 export { default as CaretDown } from './CaretDown';
 export { default as Leaf } from './Leaf';
+export { default as SinusodialLine } from './SinusodialLine';

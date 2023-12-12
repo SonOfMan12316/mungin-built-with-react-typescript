@@ -1,0 +1,17 @@
+@keyframes move-sinusoidal {
+  0% {
+    transform: translateY(0px) rotate(0deg);
+  }
+  25% {
+    transform: translateY(50px) rotate(90deg);
+  }
+  50% {
+    transform: translateY(0px) rotate(180deg);
+  }
+  75% {
+    transform: translateY(-50px) rotate(270deg);
+  }
+  100% {
+    transform: translateY(0px) rotate(360deg);
+  }
+}
