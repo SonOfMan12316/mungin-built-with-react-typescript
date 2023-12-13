@@ -1,7 +1,8 @@
-import React, { useState } from 'react';
+import React from 'react';
 import workingProcessImg from '../../assets/images/working-process.png';
 import { SinusodialLine } from '../../components/icons';
 import '../../assets/styles/ShakeOnHover.css';
+import useHoverState from '../../utils/hooks/useHover';
 
 interface ProcessItem {
   id: number;
@@ -34,26 +35,11 @@ const processItems: ProcessItem[] = [
   },
 ];
 const isLargeScreen = window.innerWidth >= 1200;
-// console.log('isLargeScreen:', isLargeScreen);
 
 const WorkingProcess: React.FC = () => {
-  const [hoveredItem, setHoveredItem] = useState<boolean[]>(Array(processItems.length).fill(false));
-
-  const handleMouseEnter = (index: number) => {
-    setHoveredItem((prevHoveredItem) => {
-      const currentHoveredItem = [...prevHoveredItem];
-      currentHoveredItem[index] = true;
-      return currentHoveredItem;
-    });
-  };
-
-  const handleMouseLeave = (index: number) => {
-    setHoveredItem((prevHoveredItem) => {
-      const currentHoveredItem = [...prevHoveredItem];
-      currentHoveredItem[index] = false;
-      return currentHoveredItem;
-    });
-  };
+  const [hoveredItem, { handleMouseEnter, handleMouseLeave }] = useHoverState(
+    Array(processItems.length).fill(false),
+  );
 
   return (
     <div className=' lg:px-16'>
