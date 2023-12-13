@@ -1,7 +1,7 @@
-import React from 'react';
+import React, { useState } from 'react';
 import workingProcessImg from '../../assets/images/working-process.png';
 import { SinusodialLine } from '../../components/icons';
-import '../../assets/styles/line.css';
+import '../../assets/styles/ShakeOnHover.css';
 
 interface ProcessItem {
   id: number;
@@ -33,10 +33,28 @@ const processItems: ProcessItem[] = [
       'Adopting modern agricultural technologies for efficiency.Implementing precision farming techniques.',
   },
 ];
-
 const isLargeScreen = window.innerWidth >= 1200;
+// console.log('isLargeScreen:', isLargeScreen);
 
-const WorkingProcess = () => {
+const WorkingProcess: React.FC = () => {
+  const [hoveredItem, setHoveredItem] = useState<boolean[]>(Array(processItems.length).fill(false));
+
+  const handleMouseEnter = (index: number) => {
+    setHoveredItem((prevHoveredItem) => {
+      const currentHoveredItem = [...prevHoveredItem];
+      currentHoveredItem[index] = true;
+      return currentHoveredItem;
+    });
+  };
+
+  const handleMouseLeave = (index: number) => {
+    setHoveredItem((prevHoveredItem) => {
+      const currentHoveredItem = [...prevHoveredItem];
+      currentHoveredItem[index] = false;
+      return currentHoveredItem;
+    });
+  };
+
   return (
     <div className=' lg:px-16'>
       <div className='bg-white py-10 lg:py-12'>
@@ -46,7 +64,12 @@ const WorkingProcess = () => {
         <div className='lg:grid lg:grid-cols-3 mt-4 xl:w-11/12 xl:mx-auto'>
           {processItems.map((item, index) => (
             <div className='flex flex-col items-center justify-center relative' key={item.id}>
-              <img src={item.img} />
+              <img
+                className={`${hoveredItem[index] ? 'shake-animation cursor-pointer' : ''}`}
+                src={item.img}
+                onMouseEnter={() => handleMouseEnter(index)}
+                onMouseLeave={() => handleMouseLeave(index)}
+              />
               <h2 className='text-sm md:text-base font-medium md:font-semibold pb-2'>
                 {item.header}
               </h2>
