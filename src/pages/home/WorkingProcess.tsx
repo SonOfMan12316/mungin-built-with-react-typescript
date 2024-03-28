@@ -63,7 +63,7 @@ const WorkingProcess: React.FC = () => {
                 {item.paragraph}
               </p>
               {isLargeScreen && (index === 0 || index === 1) && (
-                <SinusodialLine className='absolute top-6 -right-28' />
+                <SinusodialLine className='absolute hidden lg:block top-6 -right-28' />
               )}
             </div>
           ))}
