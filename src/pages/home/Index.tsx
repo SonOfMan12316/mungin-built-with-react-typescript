@@ -2,6 +2,7 @@ import React from 'react';
 import Hero from './Hero';
 import WorkingProcess from './WorkingProcess';
 import OurMission from './OurMission';
+import Partner from './Partner';
 
 const Index = () => {
   return (
@@ -9,6 +10,7 @@ const Index = () => {
       <Hero />
       <WorkingProcess />
       <OurMission />
+      <Partner />
     </div>
   );
 };
