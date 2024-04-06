@@ -42,10 +42,10 @@ const Marquee: FC<MarqueeProps> = forwardRef(
       className = '',
       autoFill = false,
       play = true,
-      pauseOnHover = false,
-      pauseOnClick = false,
+      pauseOnHover = true,
+      pauseOnClick = true,
       direction = 'left',
-      speed = 50,
+      speed = 30,
       delay = 0,
       loop = 0,
       gradient = false,
@@ -173,7 +173,7 @@ const Marquee: FC<MarqueeProps> = forwardRef(
             <Fragment key={i}>
               {Children.map(children, (child) => {
                 return (
-                  <div style={childStyle} className='rfm-child'>
+                  <div style={childStyle} className='child'>
                     {child}
                   </div>
                 );
@@ -186,22 +186,18 @@ const Marquee: FC<MarqueeProps> = forwardRef(
     );
 
     return !isMounted ? null : (
-      <div
-        ref={containerRef}
-        style={containerStyle}
-        className={'rfm-marquee-container ' + className}
-      >
-        {gradient && <div style={gradientStyle} className='rfm-overlay' />}
+      <div ref={containerRef} style={containerStyle} className={'marquee-container ' + className}>
+        {gradient && <div style={gradientStyle} className='overlay' />}
         <div
-          className='rfm-marquee'
+          className='marquee'
           style={marqueeStyle}
           onAnimationIteration={onCycleComplete}
           onAnimationEnd={onFinish}
         >
-          <div className='rfm-initial-child-container' ref={marqueeRef}>
+          <div className='initial-child-container' ref={marqueeRef}>
             {Children.map(children, (child) => {
               return (
-                <div style={childStyle} className='rfm-child'>
+                <div style={childStyle} className='child'>
                   {child}
                 </div>
               );
@@ -209,7 +205,7 @@ const Marquee: FC<MarqueeProps> = forwardRef(
           </div>
           {multiplyChildren(multiplier - 1)}
         </div>
-        <div className='rfm-marquee' style={marqueeStyle}>
+        <div className='marquee' style={marqueeStyle}>
           {multiplyChildren(multiplier)}
         </div>
       </div>

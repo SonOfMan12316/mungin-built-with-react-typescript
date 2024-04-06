@@ -1,4 +1,4 @@
-.rfm-marquee-container {
+.marquee-container {
   overflow-x: hidden;
   display: flex;
   flex-direction: row;
@@ -15,7 +15,7 @@
   }
 }
 
-.rfm-overlay {
+.overlay {
   position: absolute;
   width: 100%;
   height: 100%;
@@ -48,7 +48,7 @@
   }
 }
 
-.rfm-marquee {
+.marquee {
   flex: 0 0 auto;
   min-width: var(--min-width);
   z-index: 1;
@@ -70,7 +70,7 @@
   }
 }
 
-.rfm-initial-child-container {
+.initial-child-container {
   flex: 0 0 auto;
   display: flex;
   min-width: auto;
@@ -78,6 +78,6 @@
   align-items: center;
 }
 
-.rfm-child {
+.child {
   transform: var(--transform);
 }
