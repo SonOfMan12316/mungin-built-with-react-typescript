@@ -1,8 +1,12 @@
-import React from 'react';
+import React, { forwardRef } from 'react';
 import workingProcessImg from '../../assets/images/working-process.png';
 import { SinusodialLine } from '../../components/icons';
 import '../../assets/styles/ShakeOnHover.css';
 import useHoverState from '../../utils/hooks/useHover';
+
+type WorkingProcessProps = {
+  id: string;
+};
 
 interface ProcessItem {
   id: number;
@@ -36,13 +40,16 @@ const processItems: ProcessItem[] = [
 ];
 const isLargeScreen = window.innerWidth >= 1200;
 
-const WorkingProcess: React.FC = () => {
+const WorkingProcess: React.ForwardRefRenderFunction<HTMLDivElement, WorkingProcessProps> = (
+  { id },
+  ref,
+) => {
   const [hoveredItem, { handleMouseEnter, handleMouseLeave }] = useHoverState(
     Array(processItems.length).fill(false),
   );
 
   return (
-    <div className=' lg:px-16'>
+    <div id={id} ref={ref} className=' lg:px-16'>
       <div className='bg-white py-10 lg:py-12'>
         <h2 className='text-center text-xl sm:text-3xl md:text-3xl xl:text-4xl font-medium sm:font-semibold lg:font-bold  font-serif'>
           Working Process
@@ -73,4 +80,4 @@ const WorkingProcess: React.FC = () => {
   );
 };
 
-export default WorkingProcess;
+export default forwardRef(WorkingProcess);

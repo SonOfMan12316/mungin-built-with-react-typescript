@@ -5,7 +5,11 @@ import { Button } from '../ui';
 import { useUIStore } from '../../store/ui';
 import Sidenav from '../global/Sidenav';
 
-const Navigation: React.FC = () => {
+type NavigationProps = {
+  onNavButtonClick: (sectionId: string) => void;
+};
+
+const Navigation: React.FC<NavigationProps> = ({ onNavButtonClick }) => {
   const { updateSidenavState } = useUIStore((state) => ({
     updateSidenavState: state.updateSidenavState,
   }));
@@ -19,10 +23,22 @@ const Navigation: React.FC = () => {
         <div className='nav-links w-7/12 hidden lg:block'>
           <ul className='flex items-center'>
             {/* <li className='font-serif font-bold text-base mx-6'>Home</li> */}
-            <li className='font-serif font-bold text-base mx-6'>Process</li>
-            <li className='font-serif font-bold text-base mx-6 '>Our mission</li>
-            <li className='font-serif font-bold text-base mx-6 '>News</li>
-            <li className=' font-serif font-bold text-base mx-6 '>Join Waiting List</li>
+            <li
+              onClick={() => onNavButtonClick('workingProcessSection')}
+              className='font-serif font-bold text-base mx-6 cursor-pointer'
+            >
+              Process
+            </li>
+            <li
+              onClick={() => onNavButtonClick('ourMissionSection')}
+              className='font-serif font-bold text-base mx-6 cursor-pointer'
+            >
+              Our mission
+            </li>
+            {/* <li className='font-serif font-bold text-base mx-6 '>News</li> */}
+            <li className=' font-serif font-bold text-base mx-6 cursor-pointer'>
+              Join Waiting List
+            </li>
           </ul>
         </div>
         <Button

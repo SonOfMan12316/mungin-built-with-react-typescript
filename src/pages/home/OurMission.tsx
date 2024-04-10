@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { forwardRef } from 'react';
 import ourMissionLogo from '../../assets/images/our-mission.png';
 import ourMissionContentImg from '../../assets/images/mission-content.png';
 import useHoverState from '../../utils/hooks/useHover';
@@ -9,6 +9,10 @@ import ThirdMission from '../../components/icons/ThirdMission';
 import FourthMission from '../../components/icons/FourthMission';
 import FifthMission from '../../components/icons/FifthMission';
 import SixthMission from '../../components/icons/SixthMission';
+
+type OurMissionProps = {
+  id: string;
+};
 
 interface OurMissionContent {
   id: number;
@@ -100,7 +104,10 @@ const ourMissionContent: OurMissionContent[] = [
   },
 ];
 
-const OurMission: React.FC = () => {
+const OurMission: React.ForwardRefRenderFunction<HTMLDivElement, OurMissionProps> = (
+  { id },
+  ref,
+) => {
   const [hoveredItem, { handleMouseEnter, handleMouseLeave }] = useHoverState(
     Array(ourMissionContent.length).fill(false),
   );
@@ -110,7 +117,7 @@ const OurMission: React.FC = () => {
     top: '4rem',
   };
   return (
-    <div style={{ backgroundColor: 'rgb(248, 248, 248)' }}>
+    <div id={id} ref={ref} style={{ backgroundColor: 'rgb(248, 248, 248)' }}>
       <div className='px-6 md:px-10 lg:px-16 xl:px-32 py-10 lg:py-20 xl:py-24'>
         <div className='flex justify-center items-center mb-4'>
           <img src={ourMissionLogo} />
@@ -170,4 +177,4 @@ const OurMission: React.FC = () => {
   );
 };
 
-export default OurMission;
+export default forwardRef(OurMission);

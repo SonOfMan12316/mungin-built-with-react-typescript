@@ -11,3 +11,4 @@ export { default as SinusodialLine } from './SinusodialLine';
 export { default as CaretLeft } from './CaretLeft';
 export { default as CaretRight } from './CaretRight';
 export { default as LoyalPartner } from './LoyalPartner';
+export { default as Arrow } from './Arrow';

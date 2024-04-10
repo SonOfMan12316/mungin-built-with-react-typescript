@@ -3,14 +3,18 @@ import Navigation from '../../components/layouts/Navigation';
 import backgroundImage from '../../assets/images/hero-bg.png';
 import { Leaf } from '../../components/icons';
 
-const Hero: React.FC = () => {
+interface HeroProps {
+  onNavButtonClick: (sectionId: string) => void;
+}
+
+const Hero: React.FC<HeroProps> = ({ onNavButtonClick }) => {
   const containerStyle: React.CSSProperties = {
     backgroundImage: `url('${backgroundImage}')`,
   };
 
   return (
     <div style={containerStyle} className='bg-cover bg-center h-screen  bg-no-repeat'>
-      <Navigation />
+      <Navigation onNavButtonClick={onNavButtonClick} />
       <div className='px-6 md:px-10 lg:px-16 xl:px-32 mt-20 flex-grow flex flex-col justify-center items-center'>
         <div className=''>
           <div className='text-xl md:text-3xl xl:text-4xl font-semibold lg:font-bold w-72 md:w-1/2 lg:w-5/12'>

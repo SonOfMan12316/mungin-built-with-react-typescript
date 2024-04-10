@@ -11,6 +11,8 @@ module.exports = {
         "ch-grey": "#f8f8f8",
         "ch-border-grey": "#999999",
         "ch-trans-secondary": "#6cbd454d",
+        "ch-footer": "#333333",
+        "ch-footer-paragraph": "#FFFFE6"
       },
     },
     fontFamily: {
