@@ -27,7 +27,7 @@ const svgComponents: SVGComponent[] = [
 
 const Partner = () => {
   return (
-    <div className='px-6 md:px-10 lg:px-16 xl:px-32 py-10'>
+    <div className='px-6 md:px-10 py-10'>
       <div className='flex justify-center my-4'>
         <LoyalPartner />
       </div>

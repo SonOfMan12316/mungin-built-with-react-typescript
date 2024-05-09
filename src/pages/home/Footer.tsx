@@ -169,7 +169,6 @@ const Footer: React.FC<FooterProps> = ({ onNavButtonClick }) => {
                 md:w-11/12
                 lg:w-full
                 h-9
-                lg:h-10
                 rounded-lg
                 bg-white
                 border border-slate-300 border-solid

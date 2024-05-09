@@ -4,6 +4,7 @@ import Hamburger from '../icons/Hamburger';
 import { Button } from '../ui';
 import { useUIStore } from '../../store/ui';
 import Sidenav from '../global/Sidenav';
+import { useNavigate } from 'react-router-dom';
 
 type NavigationProps = {
   onNavButtonClick: (sectionId: string) => void;
@@ -13,6 +14,7 @@ const Navigation: React.FC<NavigationProps> = ({ onNavButtonClick }) => {
   const { updateSidenavState } = useUIStore((state) => ({
     updateSidenavState: state.updateSidenavState,
   }));
+  const navigate = useNavigate();
 
   return (
     <div className='w-screen'>
@@ -20,8 +22,8 @@ const Navigation: React.FC<NavigationProps> = ({ onNavButtonClick }) => {
         <div className='cursor-pointer hidden lg:flex items-center h-16'>
           <img className='md:w-32 lg:w-36' src={Logo} alt={'hmm'} />
         </div>
-        <div className='nav-links w-7/12 hidden lg:block'>
-          <ul className='flex items-center'>
+        <div className='nav-links hidden lg:block'>
+          <ul className='flex items-center justify-between gap-x-4'>
             {/* <li className='font-serif font-bold text-base mx-6'>Home</li> */}
             <li
               onClick={() => onNavButtonClick('workingProcessSection')}
@@ -35,9 +37,17 @@ const Navigation: React.FC<NavigationProps> = ({ onNavButtonClick }) => {
             >
               Our mission
             </li>
-            {/* <li className='font-serif font-bold text-base mx-6 '>News</li> */}
-            <li className=' font-serif font-bold text-base mx-6 cursor-pointer'>
-              Join Waiting List
+            <li
+              onClick={() => navigate('/join-our-waiting-list')}
+              className=' font-serif font-bold text-base mx-6 cursor-pointer'
+            >
+              Join Us
+            </li>
+            <li
+              onClick={() => navigate('/database')}
+              className='font-serif font-bold text-base mx-6 '
+            >
+              Check Our Database
             </li>
           </ul>
         </div>

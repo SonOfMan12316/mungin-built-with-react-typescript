@@ -40,7 +40,7 @@ const Sidenav: React.FC = () => {
     },
     {
       icon: <Waiting />,
-      label: 'join waiting list',
+      label: 'join us',
       action: () => {
         navigate('/join-our-waiting-list');
         updateSidenavState(false);
